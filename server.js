@@ -27,8 +27,7 @@ else {
   console.log("No persistent cache set. Using in-memory cache storage.")
 };
 
-koop.register(agol);
-koop.register(github);
+koop.register(fda);
 koop.register(gist);
 
 app.set('port', process.env.PORT || config.server.port || 9000);
