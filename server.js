@@ -1,7 +1,7 @@
 var express = require('express');
 var cors = require('cors');
 var config = require('config');
-config.fda.key = process.env.fda_key;
+config.fda = {key: process.env.fda_key};
 
 var koop = require('koop')(config);
 var esCache = require('koop-escache');
