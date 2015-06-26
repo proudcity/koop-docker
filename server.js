@@ -1,6 +1,8 @@
 var express = require('express');
 var cors = require('cors');
 var config = require('config');
+config.fda.key = process.env.fda_key;
+
 var koop = require('koop')(config);
 var esCache = require('koop-escache');
 var fda = require('koop-fda');
@@ -27,7 +29,6 @@ else {
   console.log("No persistent cache set. Using in-memory cache storage.")
 };
 
-koop.config.fda.key = process.env.fda_key;
 koop.register(fda);
 koop.register(gist);
 
