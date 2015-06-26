@@ -27,6 +27,7 @@ else {
   console.log("No persistent cache set. Using in-memory cache storage.")
 };
 
+koop.config.fda.key = process.env.fda_key;
 koop.register(fda);
 koop.register(gist);
 
