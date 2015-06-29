@@ -7,4 +7,4 @@ data_dir: /usr/lib/koop
 # Cache
 db:
   es: { host: es:9200 }
-  pg: postgres://postgres@postgis/koopdev
+  pg: postgres://postgres@127.0.0.1/koopdev
