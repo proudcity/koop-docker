@@ -19,4 +19,4 @@ COPY . $APP_DIR
 EXPOSE 8000
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ["koop postgis"]
+
