@@ -23,6 +23,7 @@ koopES:
     - es
   environment:
     - KOOP_CACHE=es
+    - fda_key=jehHtxlGgYw6afLkks8RxB2JvcRVn335aFwguU7X
   ports:
     - "8001:8000"
 
@@ -33,5 +34,6 @@ koopPG:
     - postgis
   environment:
     - KOOP_CACHE=postgis
+    - fda_key=jehHtxlGgYw6afLkks8RxB2JvcRVn335aFwguU7X
   ports:
     - "8002:8000"
