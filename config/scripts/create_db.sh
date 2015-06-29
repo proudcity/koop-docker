@@ -2,7 +2,7 @@
 
 check_koop_db () {
   # Grab a list of databases
-  check_db="$(psql -h postgis -U postgres -lqt)"
+  check_db="$(psql -h 127.0.0.1 -U postgres -lqt)"
 
   # Check to see if $KOOP_DATABASE already exists
   if grep -q -Eoq "($KOOP_DATABASE)" <<< $check_db; then
