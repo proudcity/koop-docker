@@ -7,8 +7,8 @@
     "config": "^1.13.0",
     "cors": "^2.5.3",
     "express": "^4.12.3",
-    "koop": "3.0.0-alpha.12",
-    "koop-yelp": "git+https://github.com/koopjs/koop-yelp.git#80d0f82",
+    "koop": "3.0.0-alpha.13",
+    "koop-yelp": "git+https://github.com/koopjs/koop-yelp.git#7741395",
     "lodash": "^4.6.1"
   },
   "keywords": [
