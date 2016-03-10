@@ -1,22 +1,22 @@
-FROM node:0.10
+FROM node:4.3.2-slim
 
-ENV APP_DIR /usr/src/koop/
+RUN apt-get update
+RUN apt-get -y install git
 
-RUN apt-get update \
-  && apt-get install -y gdal-bin \
-  && apt-get install -y postgresql-client-9.4 \
-  && mkdir -p $APP_DIR
+ENV APP_DIR /srv/www/koop
+
+RUN mkdir -p $APP_DIR
+RUN mkdir $APP_DIR/config
+
+ADD package.json /tmp/package.json
+RUN cd /tmp && npm install --production
+RUN cp -r /tmp/node_modules $APP_DIR
 
 WORKDIR $APP_DIR
 
-COPY package.json $APP_DIR
+ADD server.js $APP_DIR
+ADD config/custom-environment-variables.json $APP_DIR/config
 
-RUN npm install
+EXPOSE 8080
 
-COPY docker-entrypoint.sh /docker-entrypoint.sh
-COPY . $APP_DIR
-
-EXPOSE 8000
-
-ENTRYPOINT ["/docker-entrypoint.sh"]
-
+CMD ["node", "server.js"]
