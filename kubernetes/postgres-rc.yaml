@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: postgres
+spec:
+  replicas: 1
+  selector:
+    app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - name: postgres
+        image: dmfenton/postgis-koop
+        volumeMounts:
+          - mountPath: /var/postgres
+            name: pg-data
+        env:
+          - name: PGDATA
+            value: /var/postgres/data
+        ports:
+        - containerPort: 5432
+      volumes:
+        - name: pg-data
+          persistentVolumeClaim:
+              claimName: pg-data

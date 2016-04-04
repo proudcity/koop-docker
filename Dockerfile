@@ -1,21 +1,26 @@
-FROM node:4.3.2-slim
+FROM node:4.4.0-slim
 
-RUN apt-get update
-RUN apt-get -y install git
+RUN apt-get update && apt-get install -y \
+      ca-certificates \
+      git-core \
+      postgresql-client-9.4 \
+			zip \
+      --no-install-recommends \
+      && rm -rf /var/lib/apt/lists/*
 
 ENV APP_DIR /srv/www/koop
 
 RUN mkdir -p $APP_DIR
 RUN mkdir $APP_DIR/config
 
-ADD package.json /tmp/package.json
+COPY package.json /tmp/package.json
 RUN cd /tmp && npm install --production
 RUN cp -r /tmp/node_modules $APP_DIR
 
-WORKDIR $APP_DIR
+WORKDIR /srv/www/koop
 
-ADD server.js $APP_DIR
-ADD config/custom-environment-variables.json $APP_DIR/config
+COPY server.js $APP_DIR
+COPY config/custom-environment-variables.json $APP_DIR/config
 
 EXPOSE 8080
 
