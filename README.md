@@ -8,7 +8,7 @@
 
 ### Kubernetes on AWS
 1. Install the AWS CLI
-2. Set up a Kubernetes Cluster
+2. Set up a [Kubernetes Cluster](http://kubernetes.io/docs/getting-started-guides/aws/)
 3. `chmod +x build.sh`
 4. `./build/sh` to build the application on the cloud
 5. Log into to AWS and find your new load balancer
