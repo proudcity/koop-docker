@@ -10,7 +10,7 @@
 1. Install the AWS CLI
 2. Set up a Kubernetes Cluster
 3. `chmod +x build.sh`
-4. `./build/sh` to build the application the cloud
+4. `./build/sh` to build the application on the cloud
 5. Log into to AWS and find your new load balancer
 6. Change the health check to http and `/status` as the route and grab the URL
 7. You are up and running with koop-socrata
