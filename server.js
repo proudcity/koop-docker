@@ -6,11 +6,11 @@ var koop = Koop(config)
 
 // register pgcache so providers have access to it
 var pgCache = require('koop-pgcache')
-//koop.registerCache(pgCache)
+koop.register(pgCache)
 
 // register providers
-var socrata = require('koop-socrata')
-koop.register(socrata)
+var craigslist = require('koop-craigslist')
+koop.register(craigslist)
 
 // set up the actual app server
 var express = require('express')

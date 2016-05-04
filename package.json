@@ -7,9 +7,9 @@
     "config": "^1.13.0",
     "cors": "^2.5.3",
     "express": "^4.12.3",
-    "koop": "^2.12.1",
+    "koop": "3.0.0-alpha.26",
     "koop-pgcache": "^1.7.0",
-    "koop-socrata": "^1.0.4",
+    "koop-craigslist": "0.3.0",
     "lodash": "^4.6.1"
   },
   "keywords": [
