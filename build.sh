@@ -1,8 +1,8 @@
 #!/bin/bash
 echo "Create a volume for your postgres instance"
-aws ec2 create-volume --availability-zone us-east-1a --size 10 --volume-type gp2 | grep -oP 'vol-[\S]{8}' | tee volume.log
-mv kubernetes/postgres-pv.yaml.example kubernetes/postgres-pv.yaml
+aws ec2 create-volume --availability-zone $KUBE_AWS_ZONE --size 10 --volume-type gp2 | grep -oP 'vol-[\S]{8}' | tee volume.log
 cat volume.log | xargs -I sed -i -e 's/awsvolid/{}/' kubernetes/postgres-pv.yaml.example
+mv kubernetes/postgres-pv.yaml.example kubernetes/postgres-pv.yaml
 echo "Create a Persistent Volume with Kubernetes"
 kubectl create -f kubernetes/postgres-pv.yaml
 echo "create a Persistent Volume Claim that matches the persistent volume"
