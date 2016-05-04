@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: koop-craigslist
+spec:
+  replicas: 2
+  selector:
+    app: koop-craigslist
+  template:
+    metadata:
+      labels:
+        app: koop-craigslist
+    spec:
+      containers:
+      - name: koop
+        image: dmfenton/koop:craigslist
+        env:
+        - name: KOOP_DB_CONN
+          value: "postgres://postgres@postgres/koop"
+        ports:
+        - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /craigslist
+            port: 80
+          initialDelaySeconds: 30
+          timeoutSeconds: 1
+        imagePullPolicy: Always
