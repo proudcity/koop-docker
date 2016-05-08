@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: koop-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /craigslist
+        backend:
+          serviceName: koop-craigslist
+          servicePort: 80
+      - path: /yelp
+        backend:
+          serviceName: koop-yelp
+          servicePort: 80
