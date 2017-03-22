@@ -8,7 +8,7 @@ config.geojsonFiles = [
 var koop = Koop(config)
 
 
-var FeatureServer = require('koop-output-geoservices')
+//var FeatureServer = require('koop-output-geoservices')
 
 
 // register pgcache so providers have access to it
@@ -28,7 +28,7 @@ var gist = require('koop-gist')
 
 
 // register koop providers
-koop.register(FeatureServer)
+//koop.register(FeatureServer)
 koop.register(socrata)
 //koop.register(agol)
 //koop.register(zillow)
@@ -41,9 +41,9 @@ koop.register(geojson)
 
 // set up the actual app server
 var express = require('express')
+var cors = require('cors')
 var app = express()
-
-
+app.use(cors())
 app.use(koop)
 app.get('/status', (req, res) => res.status(200).json({status: 'up'}))
 app.listen(80, function () { console.log('we\'re up and running') })
