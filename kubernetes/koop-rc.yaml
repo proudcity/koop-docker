@@ -13,10 +13,12 @@ spec:
     spec:
       containers:
       - name: koop
-        image: dmfenton/koop-docker:latest
+        image: gcr.io/proudcity-1184/proudcity-koop:master.2
         env:
         - name: KOOP_DB_CONN
           value: "postgres://postgres@postgres/koop"
+        - name: GH_TOKEN
+          value: "todo"
         ports:
         - containerPort: 80
         livenessProbe:

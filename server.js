@@ -3,7 +3,7 @@
 var Koop = require('koop')
 var config = require('config')
 config.geojsonFiles = [
-  {"name": "test", "path": "./example.json"}
+  {"name": "test", "path": "./json/example.json"}
 ];
 var koop = Koop(config)
 
