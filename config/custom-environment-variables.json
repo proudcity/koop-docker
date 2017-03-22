@@ -1,6 +1,6 @@
 {
   "db": {
     "conn": "KOOP_DB_CONN"
-  }
+  },
+  "ghtoken": "GITHUB_TOKEN"
 }
-

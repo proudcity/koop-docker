@@ -14,15 +14,10 @@ spec:
       containers:
       - name: postgres
         image: dmfenton/postgis-koop
-        volumeMounts:
-          - mountPath: /var/postgres
-            name: pg-data
+
         env:
           - name: PGDATA
             value: /var/postgres/data
         ports:
         - containerPort: 5432
-      volumes:
-        - name: pg-data
-          persistentVolumeClaim:
-              claimName: pg-data
+

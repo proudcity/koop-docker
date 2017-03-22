@@ -22,6 +22,9 @@ WORKDIR /srv/www/koop
 COPY server.js $APP_DIR
 COPY config/custom-environment-variables.json $APP_DIR/config
 
+RUN mkdir -p /data
+COPY json/example.json /data/example.json
+
 EXPOSE 8080
 
 CMD ["node", "server.js"]
