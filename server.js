@@ -36,8 +36,10 @@ koop.register(geojson)
 
 // set up the actual app server
 var express = require('express')
+var cors = require('cors')
 var app = express()
+app.use(cors())
 app.use(koop)
 app.get('/status', (req, res) => res.status(200).json({status: 'up'}))
-app.listen(80, function () { console.log('we\'re up and running') })
+app.listen(8004, function () { console.log('we\'re up and running') })
 
