@@ -2,5 +2,8 @@
   "db": {
     "conn": "KOOP_DB_CONN"
   },
-  "ghtoken": "GITHUB_TOKEN"
+  "ghtoken": "GITHUB_TOKEN",
+  "socrata": {
+    "token": "SOCRATA_TOKEN"
+  }
 }
