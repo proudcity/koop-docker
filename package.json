@@ -11,10 +11,8 @@
     "koop-census": "0.0.2",
     "koop-geojson-file": "^2.0.0",
     "koop-gist": "^2.0.0",
-    "koop-output-geoservices": "^1.0.0",
     "koop-pgcache": "^1.7.0",
-    "koop-provider-craigslist": "^2.0.0",
-    "koop-socrata": "^1.0.4",
+    "koop-socrata": "^1.0.0",
     "lodash": "^4.6.1"
   },
   "keywords": [

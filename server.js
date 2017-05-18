@@ -9,7 +9,7 @@ config.geojsonFiles = [
 var koop = new Koop(config);
 
 
-var FeatureServer = require('koop-output-geoservices')
+// var FeatureServer = require('koop-output-geoservices')
 
 
 // register pgcache so providers have access to it
@@ -29,7 +29,7 @@ var gist = require('koop-gist')
 
 
 // register koop providers
-koop.register(FeatureServer)
+// koop.register(FeatureServer)
 koop.register(socrata)
 //koop.register(agol)
 //koop.register(zillow)
