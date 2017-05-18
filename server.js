@@ -3,9 +3,10 @@
 var Koop = require('koop')
 var config = require('config')
 config.geojsonFiles = [
-  {"name": "test", "path": "./json/example.json"}
+  {"name": "test", "path": "./json/example.json"},
+  {"name": "danvers-trail-map", "path": "./json/danvers-trail-map.json"}
 ];
-var koop = Koop(config)
+var koop = new Koop(config);
 
 
 var FeatureServer = require('koop-output-geoservices')
@@ -46,5 +47,7 @@ var app = express()
 app.use(cors())
 app.use(koop)
 app.get('/status', (req, res) => res.status(200).json({status: 'up'}))
-app.listen(80, function () { console.log('we\'re up and running') })
+
+var port = process.env.IS_PRODUCTION ? 80 : 8004
+app.listen(port, function () { console.log('we\'re up and running') })
 
